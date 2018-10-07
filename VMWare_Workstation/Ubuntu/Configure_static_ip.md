@@ -2,7 +2,7 @@
 
  - Make sure your VM is using 'Broadcast' network type
  - SSH into the VM or log into GUI ( open terminal in this case )
- - vim -N /etc/network/interfaces
+ - `vim -N /etc/network/interfaces`
    ```
    # interfaces(5) file used by ifup(8) and ifdown(8)
     auto lo
