@@ -88,8 +88,6 @@ itself.
 
 **On RHEL 9 with the systemd + RPM install path, the stock installer overwrites your OS
 static hostname with the service FQDN, unconditionally, via `hostnamectl set-hostname`.**
-This is exactly the behavior the ticket suspected. It is not configurable via any documented
-flag in this release.
 
 Two ways to handle this, depending on your actual requirement:
 
@@ -161,12 +159,3 @@ openssl s_client -connect <ip>:443 -servername <fqdn> -CAfile <server-cert>
 Confirm `issuer` is `https://<fqdn>` (your service FQDN, not the OS hostname) in all cases,
 before and after any hostname change.
 
-## Rollback / upgrade precautions
-
-- Keep the original `/etc/hostname`, `/etc/hosts`, and `/etc/selinux/config` backed up before
-  install (this test kept them in a root-only 0700 directory).
-- Do not re-run the installer over a working system to "test" upgrade behavior — upgrade
-  paths were reviewed at the source level for hostname-related risk but not executed.
-- If applying `preserve-os-hostname.patch`, keep the pre-patch file checksums (in the patch
-  header) so you can verify a clean revert (`patch -R`) if needed.
-zico@Mac:~/.buzz/OUTBOX/ticket-439$
