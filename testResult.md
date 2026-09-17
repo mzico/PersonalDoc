@@ -1,9 +1,6 @@
 # Ticket #439 — Test Results
 
-Target: `ssh -i qa_gluu_org.pem ec2-user@184.34.206.32` (external), internal 172.31.39.68.
-RHEL 9.8 "Plow", kernel 5.14.0-687.48.1.el9_8.x86_64, x86_64. Standard Flex **6.2.0**
-(`flex-6.2.0-stable.el9.x86_64.rpm`) → Janssen **v2.2.0** (byte-verified against the shipped
-RPM — see `RESEARCH/FLEX_6_2_0_JANSSEN_SOURCE_REVIEW.md`). Local persistence backend:
+
 **PostgreSQL** (`-local-rdbm pgsql`, the release's documented default; confirmed by the RPM's
 own dependency pull). Date: 2026-09-17.
 
